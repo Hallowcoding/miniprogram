@@ -1,0 +1,28 @@
+/* pages/loancalculator/loancalculator.wxss */
+.data-wrapper {
+    display: flex;
+    padding: 10px;
+    justify-content: space-around;
+}
+.data-title {
+    text-align: center;
+    width: 150px;
+}
+.data-input {
+    width: 120px;
+    border: 1px solid;
+    display: flex;
+    justify-content: flex-start;
+}
+.input-wrapper {
+    width: 60%;
+}
+.data-text {
+    display: flex;
+    justify-content: flex-start;
+}
+
+/** 添加自定义button点击态样式类**/
+.other-button-hover {
+    background-color: blue;
+}
