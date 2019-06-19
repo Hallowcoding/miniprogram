@@ -1,11 +1,16 @@
 package com.hallowcoder.sell.dao;
 
 import com.hallowcoder.sell.entity.ProductCategory;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import javax.transaction.Transactional;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * ProductCategoryDaoTest
@@ -27,10 +32,18 @@ public class ProductCategoryDaoTest {
     }
 
     @Test
+    @Transactional
     public void saveTest(){
-        ProductCategory productCategory = new ProductCategory();
-        productCategory.setCategoryName("主食类");
-        productCategory.setCategoryType(3);
-        dao.save(productCategory);
+        ProductCategory productCategory = new ProductCategory("女生最爱", 10);
+
+        ProductCategory result = dao.save(productCategory);
+        Assert.assertNotNull(result);
+    }
+
+    @Test
+    public void findByCategoryTypeInTest(){
+        List<Integer> list = Arrays.asList(2, 3, 4);
+        List<ProductCategory> result = dao.findByCategoryTypeIn(list);
+        Assert.assertNotEquals(0, result.size());
     }
 }

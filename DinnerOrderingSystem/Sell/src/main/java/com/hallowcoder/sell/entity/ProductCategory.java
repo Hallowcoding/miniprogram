@@ -32,10 +32,11 @@ public class ProductCategory {
     /** 类目编号 */
     private Integer categoryType;
 
-    /** 创建时间 */
-    private Date createTime;
+    public ProductCategory() {
+    }
 
-    /** 更新时间 */
-    private Date updateTime;
-
+    public ProductCategory(String categoryName, Integer categoryType) {
+        this.categoryName = categoryName;
+        this.categoryType = categoryType;
+    }
 }
