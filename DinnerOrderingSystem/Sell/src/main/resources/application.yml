@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: hallocoder
+    url: jdbc:mysql://47.111.184.70/dinnerOrdS?characterEncoding=utf-8&useSSL=false
+  jpa:
+    show-sql: true
+    open-in-view: true
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
