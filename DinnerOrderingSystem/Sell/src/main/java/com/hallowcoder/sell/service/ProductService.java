@@ -1,5 +1,6 @@
 package com.hallowcoder.sell.service;
 
+import com.hallowcoder.sell.dto.CartDTO;
 import com.hallowcoder.sell.entity.ProductInfo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,9 +11,8 @@ import java.util.List;
  * ProductService
  *
  * 商品
- * @Author th
- * @Date 2019/6/20
- * @Time 3:33
+ * @author th
+ * 2019/6/20 3:33
  **/
 public interface ProductService {
 
@@ -20,7 +20,7 @@ public interface ProductService {
 
     /**
      * 查询所有在架商品列表
-     * @return
+     * @return 在架商品列表
      */
     List<ProductInfo> findUpAll();
 
@@ -28,7 +28,14 @@ public interface ProductService {
 
     ProductInfo save(ProductInfo productInfo);
 
-    //TODO 添加库存
+    /**
+     * 添加库存
+     */
+    void increaseStock(List<CartDTO> cartDTOList);
 
-    //TODO 扣减库存
+
+    /**
+     * 扣减库存
+     */
+    void decreaseStock(List<CartDTO> cartDTOList);
 }

@@ -12,9 +12,8 @@ import java.util.List;
  * CategoryServiceImpl
  *
  * 类目
- * @Author th
- * @Date 2019/6/20
- * @Time 2:33
+ * @author th
+ * 2019/6/20 2:33
  **/
 @Service
 public class CategoryServiceImpl implements CategoryService {

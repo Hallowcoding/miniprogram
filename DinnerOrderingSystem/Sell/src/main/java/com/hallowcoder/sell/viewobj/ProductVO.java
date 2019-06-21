@@ -10,7 +10,7 @@ import java.util.List;
  *
  * 商品信息(包含类目)
  * @author th
- * @date 2019/6/20 11:36
+ * 2019/6/20 11:36
  **/
 @Data
 public class ProductVO {

@@ -9,8 +9,7 @@ import java.util.List;
  * ProductInfoDao
  *
  * @Author th
- * @Date 2019/6/20
- * @Time 3:04
+ * 2019/6/20 3:04
  **/
 public interface ProductInfoDao extends JpaRepository<ProductInfo, String> {
 

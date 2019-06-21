@@ -7,7 +7,7 @@ import lombok.Data;
  *
  * http请求返回最外层对象
  * @author th
- * @date 2019/6/20 11:07
+ * 2019/6/20 11:07
  **/
 @Data
 public class ResultVO<T> {

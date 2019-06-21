@@ -9,7 +9,7 @@ import java.util.List;
  * ProductCategoryDao
  *
  * @author th
- * @date 2019/6/19 0:46
+ * 2019/6/19 0:46
  **/
 public interface ProductCategoryDao extends JpaRepository<ProductCategory, Integer> {
 

@@ -10,7 +10,7 @@ import java.math.BigDecimal;
  *
  * 商品详情
  * @author th
- * @date 2019/6/20 16:04
+ * 2019/6/20 16:04
  **/
 @Data
 public class ProductInfoVO {

@@ -6,7 +6,7 @@ import com.hallowcoder.sell.viewobj.ResultVO;
  * ResultVOUtil
  *
  * @author th
- * @date 2019/6/20 17:20
+ * 2019/6/20 17:20
  **/
 public class ResultVOUtil {
 

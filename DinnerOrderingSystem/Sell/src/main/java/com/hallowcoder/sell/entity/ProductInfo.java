@@ -11,8 +11,7 @@ import java.math.BigDecimal;
  *
  * 商品
  * @Author th
- * @Date 2019/6/20
- * @Time 2:58
+ * 2019/6/20 2:58
  **/
 @Entity
 @Data

@@ -14,7 +14,7 @@ import java.util.Date;
  * ProductCategory
  * 类目
  * @author th
- * @date 2019/6/18 23:51
+ * 2019/6/18 23:51
  **/
 @Entity
 @Proxy(lazy=false)

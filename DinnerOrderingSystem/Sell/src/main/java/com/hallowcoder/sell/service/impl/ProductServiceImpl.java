@@ -1,22 +1,25 @@
 package com.hallowcoder.sell.service.impl;
 
 import com.hallowcoder.sell.dao.ProductInfoDao;
+import com.hallowcoder.sell.dto.CartDTO;
 import com.hallowcoder.sell.entity.ProductInfo;
 import com.hallowcoder.sell.enums.ProductStatusEnum;
+import com.hallowcoder.sell.enums.ResultEnum;
+import com.hallowcoder.sell.exception.SellException;
 import com.hallowcoder.sell.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
  * ProductServiceImpl
  *
- * @Author th
- * @Date 2019/6/20
- * @Time 3:37
+ * @author th
+ * 2019/6/20 3:37
  **/
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -42,5 +45,30 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductInfo save(ProductInfo productInfo) {
         return dao.save(productInfo);
+    }
+
+    @Override
+    public void increaseStock(List<CartDTO> cartDTOList) {
+
+    }
+
+    @Override
+    @Transactional
+    public void decreaseStock(List<CartDTO> cartDTOList) {
+        for(CartDTO cartDTO : cartDTOList) {
+            ProductInfo productInfo = dao.getOne(cartDTO.getProductId());
+            if (productInfo == null) {
+                throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+            }
+
+            Integer result = productInfo.getProductStock() - cartDTO.getProductQuantity();
+            if (result < 0) {
+                throw new SellException(ResultEnum.PRODUCT_NOT_ENOUGH_STOCK);
+            }
+
+            productInfo.setProductStock(result);
+
+            dao.save(productInfo);
+        }
     }
 }
