@@ -3,6 +3,7 @@ package com.hallowcoder.sell.service.impl;
 import com.hallowcoder.sell.dto.OrderDTO;
 import com.hallowcoder.sell.entity.OrderDetail;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,11 +47,17 @@ public class OrderServiceImplTest {
         orderDetail1.setProductQuantity(1);
         orderDetailList.add(orderDetail1);
 
+        OrderDetail orderDetail2 = new OrderDetail();
+        orderDetail2.setProductId("456");
+        orderDetail2.setProductQuantity(1);
+        orderDetailList.add(orderDetail2);
+
         orderDTO.setOrderDetailList(orderDetailList);
 
         OrderDTO result = orderService.create(orderDTO);
 
         log.info("【创建订单】 result = {}", result);
+        Assert.assertNotNull(result);
     }
 
     @Test
