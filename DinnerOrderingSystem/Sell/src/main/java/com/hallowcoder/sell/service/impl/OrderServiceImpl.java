@@ -1,5 +1,6 @@
 package com.hallowcoder.sell.service.impl;
 
+import com.hallowcoder.sell.converter.OrderMaster2OrderDTOConverter;
 import com.hallowcoder.sell.dao.OrderDetailDao;
 import com.hallowcoder.sell.dao.OrderMasterDao;
 import com.hallowcoder.sell.dto.CartDTO;
@@ -17,6 +18,8 @@ import com.hallowcoder.sell.utils.KeyUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -110,7 +113,10 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Page<OrderDTO> findList(String buyerOpenid, Pageable pageable) {
-        return null;
+        Page<OrderMaster> orderMasterPage = orderMasterDao.findByBuyerOpenid(buyerOpenid, pageable);
+
+        List<OrderDTO> orderDTOList = OrderMaster2OrderDTOConverter.convert(orderMasterPage.getContent());
+        return new PageImpl<OrderDTO>(orderDTOList, pageable, orderMasterPage.getTotalElements());
     }
 
     @Override
