@@ -2,7 +2,10 @@ package com.hallowcoder.sell.service.impl;
 
 import com.hallowcoder.sell.dto.OrderDTO;
 import com.hallowcoder.sell.entity.OrderDetail;
+import com.hallowcoder.sell.enums.OrderStatusEnum;
+import com.hallowcoder.sell.enums.PayStatusEnum;
 import lombok.extern.slf4j.Slf4j;
+import org.aspectj.weaver.ast.Or;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -81,13 +84,25 @@ public class OrderServiceImplTest {
 
     @Test
     public void cancel() {
+        OrderDTO orderDTO = orderService.findOne(ORDERID);
+        OrderDTO result = orderService.cancel(orderDTO);
+
+        Assert.assertEquals(OrderStatusEnum.CANCEL.getCode(), result.getOrderStatus());
     }
 
     @Test
     public void finish() {
+        OrderDTO orderDTO = orderService.findOne(ORDERID);
+        OrderDTO result = orderService.finish(orderDTO);
+
+        Assert.assertEquals(OrderStatusEnum.FINISHED.getCode(), result.getOrderStatus());
     }
 
     @Test
     public void paid() {
+        OrderDTO orderDTO = orderService.findOne(ORDERID);
+        OrderDTO result = orderService.paid(orderDTO);
+
+        Assert.assertEquals(PayStatusEnum.SUCCESS.getCode(), result.getPayStatus());
     }
 }
