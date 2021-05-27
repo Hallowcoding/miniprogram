@@ -1,0 +1,2 @@
+不可直接打开 index.html 
+需要web服务器部署才能打开(如nginx /apache/tomcat)

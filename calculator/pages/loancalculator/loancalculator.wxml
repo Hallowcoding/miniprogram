@@ -1,0 +1,14 @@
+<view class="">
+  <view class="data-wrapper" wx:for="{{fieldData}}" wx:for-item="item" wx:key="i">
+    <view class="data-title">
+      {{ item.title }}
+    </view>
+    <view class="input-wrapper">
+      <input class="data-input" wx:if="{{item.type=='input'}}" data-item="{{item.field}}" type="digit" bindinput="getInput" />
+      <button class="data-button" wx:elif="{{item.type=='button'}}" type="primary" size="mini" plain="true" bindtap="calculate" hover-class="other-button-hover">计算</button>
+      <view class="data-text" wx:else>{{ formData[item.field] }}</view>
+    </view>
+  </view>
+</view>
+
+

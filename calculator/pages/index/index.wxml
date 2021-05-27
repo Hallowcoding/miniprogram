@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="tool" wx:for="{{tool}}" wx:for-item="item" wx:key="i">
+    <image src="{{item.icon}}" />
+    <button bindtap="bindViewTap" data-next="{{item.url}}"> {{item.field}} </button>
+  </view>
+</view>
