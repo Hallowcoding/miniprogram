@@ -4,61 +4,41 @@ const app = getApp()
 
 Page({
   data: {
-	level: {"levelId":1,
-	"words":[[null,null,null,null,null,null,null,null],
-	[null,null,null,null,{"v":"顺","vor":"1"},null,null,null],
-	[null,{"v":"爱","vor":"1"},{"v":"不","vor":"0"},{"v":"释","vor":"1"},{"v":"手","vor":"0"},null,null,null],
-	[null,null,null,null,{"v":"牵","vor":"0"},null,null,null],
-	[null,null,null,{"v":"亡","vor":"0"},{"v":"羊","vor":"1"},{"v":"补","vor":"0"},{"v":"牢","vor":"1"},null],
-	[null,null,null,null,null,null,null,null]],
-	"answers":["亡","牵","补","手","不"]},
-	rows: 6,
-	columns: 8,
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+		levels: [],
+    user_level_number: 1,
+    user_id: "1"
   },
   onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
+		// 1. 获取数据库引用
+		const db = wx.cloud.database({
+		  env: 'hallowcode'
+		})
+		let self = this;
+		// 2. 查询关卡列表
+		db.collection('level').where({
+		}).get({
+		  success: function(res) {
+				self.setData({
+					levels: res.data
+				})
+			}
+		})
+		//3.查询用户最大关数
+		db.collection('level_user').where({
+			user_id: this.data.user_id
+		}).get({
+		  success: function(res) {
+				self.setData({
+					user_level_number: res.data[0].level_number
+				})
+			}
+		})
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  }
+	levelClick: function(e) {
+		//跳转至关卡详情页面，带返回按钮
+		let data = e.currentTarget.dataset, user_level_number = this.data.user_level_number
+		wx.navigateTo({
+			url: '../level/level?level_id='+ e.currentTarget.id + '&passor=' + (data.level_number <= user_level_number)
+		})
+	}
 })

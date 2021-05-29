@@ -1,28 +1,18 @@
 <!--index.wxml-->
 <view class="container">
-  <!-- <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view> -->
-  
-  <view class="table">
-   <block wx:for="{{level.words}}" wx:key="{{item}}">
-	<view class="tr">
-	  <view class="td" wx:for="{{item}}">
-	    <block wx:if="{{item != null}}">
-				<block wx:if="{{item.vor == 1}}">
-				  <button>{{item.v}}</button>
+	<view class="table" style="flex-direction:row;">
+		<block wx:for="{{levels}}" wx:key="key" wx:for-item="item">
+			<view class="td">
+				<block wx:if="{{item.level_number <= user_level_number}}">
+					<button id="{{item._id}}" data-item="{{item}}" class="pass" bindtap="levelClick">{{item.level_number}}</button>
 				</block>
-				<block wx:else><button></button></block>
-			</block>
-	  </view>
+				<block wx:elif="{{item.level_number == (user_level_number + 1)}}">
+					<button id="{{item._id}}" data-item="{{item}}" class="unlock" bindtap="levelClick" style="background-image: url(../../image/unlock.png);">{{item.level_number}}</button>
+				</block>
+				<block wx:else>
+					<button id="{{item._id}}" data-item="{{item}}" class="lock" bindtap="levelClick" style="background-image:url('../../image/lock.png');">{{item.level_number}}</button>
+				</block>
+			</view>
+		</block>
 	</view>
-   </block>
-  </view>
 </view>

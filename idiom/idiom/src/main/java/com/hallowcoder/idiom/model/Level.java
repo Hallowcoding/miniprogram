@@ -23,6 +23,8 @@ public class Level implements Serializable {
   @GeneratedValue(strategy = GenerationType.SEQUENCE)
   private Long id;
 
+  private Integer levelNumber;
+
   private Integer rows;
 
   private Integer columns;

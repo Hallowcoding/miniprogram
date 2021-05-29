@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view class="container">
+	<view class="table">
+		<block wx:for="{{level}}" wx:key="key" wx:for-item="rows">
+			<view class="tr">
+				<view class="td" wx:for="{{rows}}" wx:key="key">
+					<block wx:if="{{item != null}}">
+						<block wx:if="{{item.vor == true}}">
+							<button data-item="{{item}}">{{item.value}}</button>
+						</block>
+						<block wx:else>
+							<button id="{{item._id}}" data-item="{{item}}" class="{{sel[item._id]}}" bindtap="wordClick">
+								{{input[item._id].value}}
+							</button>
+						</block>
+					</block>
+				</view>
+			</view>
+		</block>
+	</view>
+	<view class="answers">
+		<view class="td answer" wx:for="{{answers}}" wx:key="key" data-index="{{index}}">
+			<button wx:if="{{item.input}}" id="{{index}}" data-item="{{item}}" bindtap="answerClick">{{item.value}}</button>
+		</view>
+	</view>
+</view>

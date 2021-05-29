@@ -1,0 +1,43 @@
+/**index.wxss**/
+.table {
+  border: 1px solid darkgray;
+	padding-top: 100rpx;
+	padding-bottom: 100rpx;
+}
+.tr {
+  display: flex;
+  height: 80rpx;
+	flex-direction:row;
+	padding-left: 125rpx;
+}
+.td {
+	display: flex;
+	height: 80rpx;
+  width: 80rpx;
+  justify-content: center;
+  text-align: center;
+}
+button {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	text-align: center;
+	width: 80rpx;
+	font-size: 40rpx;
+	padding-left: 20rpx;
+}
+
+.answers {
+	display: flex;
+	justify-content: center;
+	flex-direction:row;
+	flex-wrap: wrap;
+	padding-top: 50rpx;
+}
+.answer {
+	padding-top: 20rpx;
+	padding-left: 20rpx;
+}
+.sel {
+	border: 1px solid red;
+}

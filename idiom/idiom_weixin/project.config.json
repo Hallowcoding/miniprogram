@@ -42,6 +42,7 @@
   "libVersion": "2.0.8",
   "appid": "wx0b29755c55350df7",
   "projectname": "idiom",
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "search": {
       "list": []

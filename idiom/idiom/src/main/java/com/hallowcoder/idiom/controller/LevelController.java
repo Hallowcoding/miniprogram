@@ -33,11 +33,17 @@ public class LevelController {
   @RequestMapping(value = "/list", method = RequestMethod.GET)
   @ResponseBody
   public CommonResult list(@RequestParam(value = "userId") String userId) {
+    //用户通过的最大关卡id
     Long levelId = levelService.getUserLevelId(userId);
     List<Level> levelList = levelService.list();
     levelList.stream().forEach(e -> {
+      //用户通过的关卡标记为1
       if (levelId >= e.getId()) {
         e.setPassOr(1);
+      }
+      //用户通过的最大关卡的下一关标记passOr为0
+      if (levelId + 1 == e.getId()) {
+        e.setPassOr(0);
       }
     });
     return CommonResult.success(levelList);
