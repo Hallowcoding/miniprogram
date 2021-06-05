@@ -1,12 +1,10 @@
 {
-  "description": "项目配置文件。",
-  "packOptions": {
-    "ignore": []
-  },
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
   "setting": {
     "urlCheck": true,
     "es6": true,
-    "enhance": false,
+    "enhance": true,
     "postcss": true,
     "preloadBackgroundData": false,
     "minified": true,
@@ -30,7 +28,7 @@
       "outputPath": ""
     },
     "enableEngineNative": false,
-    "useIsolateContext": false,
+    "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
     "userConfirmedBundleSwitch": false,
@@ -38,11 +36,9 @@
     "packNpmRelationList": [],
     "minifyWXSS": true
   },
-  "compileType": "miniprogram",
-  "libVersion": "2.0.8",
   "appid": "wx0b29755c55350df7",
-  "projectname": "idiom",
-  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+  "projectname": "miniprogram-1",
+  "libVersion": "2.14.1",
   "condition": {
     "search": {
       "list": []
@@ -50,12 +46,20 @@
     "conversation": {
       "list": []
     },
+    "plugin": {
+      "list": []
+    },
     "game": {
-      "currentL": -1,
       "list": []
     },
     "miniprogram": {
-      "list": []
+      "list": [
+        {
+          "id": -1,
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide"
+        }
+      ]
     }
   }
 }

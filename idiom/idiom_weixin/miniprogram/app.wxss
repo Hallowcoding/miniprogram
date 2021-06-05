@@ -1,0 +1,15 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  /* box-sizing: border-box; */
+	/* background-color: #807600; */
+	background-image:url('https://idiom-1300828054.cos.ap-chengdu.myqcloud.com/background1.png');
+	background-size:cover;
+}
+page {
+	height: 100%;
+}

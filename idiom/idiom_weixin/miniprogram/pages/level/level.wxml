@@ -9,7 +9,7 @@
 							<button data-item="{{item}}">{{item.value}}</button>
 						</block>
 						<block wx:else>
-							<button id="{{item._id}}" data-item="{{item}}" class="{{sel[item._id]}}" bindtap="wordClick">
+							<button id="{{item._id}}" data-item="{{item}}" class="input {{sel[item._id]}}" bindtap="wordClick">
 								{{input[item._id].value}}
 							</button>
 						</block>

@@ -1,0 +1,18 @@
+<!--index.wxml-->
+<view class="container">
+	<view class="table" style="flex-direction:row;">
+		<block wx:for="{{levels}}" wx:key="key" wx:for-item="item">
+			<view class="td">
+				<block wx:if="{{item.passor == 1}}">
+					<button id="{{item._id}}" data-item="{{item}}" class="pass" bindtap="levelClick">{{item.level_number}}</button>
+				</block>
+				<block wx:elif="{{item.passor == 0}}">
+					<button id="{{item._id}}" data-item="{{item}}" class="unlock" bindtap="levelClick" style="background-image: url(https://idiom-1300828054.cos.ap-chengdu.myqcloud.com/unlock.png);">{{item.level_number}}</button>
+				</block>
+				<block wx:else>
+					<button id="{{item._id}}" data-item="{{item}}" class="lock" style="background-image:url('https://idiom-1300828054.cos.ap-chengdu.myqcloud.com/lock.png');">{{item.level_number}}</button>
+				</block>
+			</view>
+		</block>
+	</view>
+</view>

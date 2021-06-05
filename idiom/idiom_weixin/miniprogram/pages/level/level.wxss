@@ -1,6 +1,6 @@
 /**index.wxss**/
 .table {
-  border: 1px solid darkgray;
+  border-bottom: 1px solid darkgray;
 	padding-top: 100rpx;
 	padding-bottom: 100rpx;
 }
@@ -25,6 +25,12 @@ button {
 	width: 80rpx;
 	font-size: 40rpx;
 	padding-left: 20rpx;
+	background-color: #d3e8057a;
+	border-radius: 20rpx;
+}
+
+.input {
+	border: 2px solid blue;
 }
 
 .answers {
@@ -39,5 +45,8 @@ button {
 	padding-left: 20rpx;
 }
 .sel {
+	border: 1px solid #ff9800ba;
+}
+.wrong {
 	border: 1px solid red;
 }

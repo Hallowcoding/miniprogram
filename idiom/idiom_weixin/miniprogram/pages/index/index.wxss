@@ -27,17 +27,18 @@ button {
 	text-align: center;
 	width: 100rpx;
 	font-size: 40rpx;
+	border-radius: 30rpx;
 }
 .pass {
-	background: rgb(165 49 49 / 79%);
+	background: rgb(245 148 5 / 65%);
 }
 .unlock {
-	background: rgb(165 49 49 / 79%);
+	background: rgb(214 26 26 / 72%);
 	background-size:cover;
 	background-repeat:no-repeat;
 }
 .lock {
-	background: rgb(165 49 49);
+	background: rgb(167 5 5 / 72%);
 	background-size:cover;
 	background-repeat:no-repeat;
 }
